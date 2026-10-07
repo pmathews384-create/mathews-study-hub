@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mathews Study System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+             Mathews Study System
+        </div>
+
+        <div class="nav-actions">
+            <button id="themeBtn" class="icon-btn">
+            </button>
+        </div>
+
+    </nav>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="container">
+
+        <!-- Welcome -->
+
+        <section class="welcome">
+
+            <div>
+                <p class="small-title">STUDENT DASHBOARD</p>
+
+                <h1>
+                    Welcome back, Mathews 
+                </h1>
+
+                <p>
+                    Stay focused, track your study time and
+                    make progress every day.
+                </p>
+            </div>
+
+            <div class="date-box">
+                <span id="currentDate"></span>
+            </div>
+
+        </section>
+
+
+        <!-- ================= STATISTICS ================= -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    ⏱
+                </div>
+
+                <div>
+                    <p>Total Study Time</p>
+                    <h2 id="totalTime">00:00:00</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon black">
+                </div>
+
+                <div>
+                    <p>Subjects</p>
+                    <h2 id="subjectCount">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon white">
+                    
+                </div>
+
+                <div>
+                    <p>Current Subject</p>
+                    <h2 id="currentSubject">None</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    
+                </div>
+
+                <div>
+                    <p>Today's Goal</p>
+                    <h2 id="goalDisplay">2 Hours</h2>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= STUDY AREA ================= -->
+
+        <section class="study-layout">
+
+
+            <!-- SUBJECTS -->
+
+            <div class="panel subjects-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>My Subjects</h2>
+                        <p>Select a subject to start studying.</p>
+                    </div>
+
+                    <button id="addSubjectBtn" class="primary-btn">
+                        + Add Subject
+                    </button>
+
+                </div>
+
+
+                <div id="subjectsList" class="subjects-list">
+
+                    <!-- Subjects will be generated here -->
+
+                </div>
+
+            </div>
+
+
+            <!-- TIMER -->
+
+            <div class="panel timer-panel">
+
+                <p class="timer-label">
+                    CURRENT STUDY SESSION
+                </p>
+
+                <h2 id="timerSubject">
+                    Select a subject
+                </h2>
+
+                <div id="timer" class="timer">
+                    00:00:00
+                </div>
+
+                <div class="timer-status">
+                    <span id="statusDot"></span>
+                    <span id="timerStatus">
+                        Not studying
+                    </span>
+                </div>
+
+
+                <div class="timer-buttons">
+
+                    <button
+                        id="startBtn"
+                        class="start-btn"
+                    >
+                        ▶ Start
+                    </button>
+
+                    <button
+                        id="pauseBtn"
+                        class="pause-btn"
+                    >
+                        ⏸ Pause
+                    </button>
+
+                    <button
+                        id="resetBtn"
+                        class="reset-btn"
+                    >
+                        ↻ Reset
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROGRESS ================= -->
+
+        <section class="panel progress-panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h2>Study Progress</h2>
+                    <p>
+                        See how much time you've spent on each subject.
+                    </p>
+                </div>
+
+            </div>
+
+            <div id="progressList">
+
+                <!-- Progress generated by JavaScript -->
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= GOAL ================= -->
+
+        <section class="goal-section">
+
+            <div class="panel goal-panel">
+
+                <div>
+                    <p class="small-title">
+                        DAILY STUDY GOAL
+                    </p>
+
+                    <h2>
+                        Set your daily target
+                    </h2>
+
+                    <p>
+                        Choose how many hours you want to study today.
+                    </p>
+                </div>
+
+                <div class="goal-controls">
+
+                    <input
+                        type="number"
+                        id="goalInput"
+                        min="1"
+                        max="24"
+                        value="2"
+                    >
+
+                    <span>hours</span>
+
+                    <button
+                        id="saveGoalBtn"
+                        class="primary-btn"
+                    >
+                        Save Goal
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= ADD SUBJECT MODAL ================= -->
+
+    <div id="modal" class="modal">
+
+        <div class="modal-content">
+
+            <button
+                id="closeModal"
+                class="close-btn"
+            >
+                ×
+            </button>
+
+            <h2>Add New Subject</h2>
+
+            <p>
+                Enter the name of the subject you want to study.
+            </p>
+
+            <input
+                type="text"
+                id="subjectInput"
+                placeholder="e.g. M111"
+            >
+
+            <button
+                id="saveSubjectBtn"
+                class="primary-btn full-btn"
+            >
+                Add Subject
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Mathews Study System
+        </p>
+
+        <p>
+            Study smarter. Stay consistent. 🚀
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
